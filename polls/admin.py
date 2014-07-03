@@ -7,9 +7,12 @@ class ChoiceInLine(admin.TabularInline):
 
 class PollAdmin(admin.ModelAdmin):
 	fieldsets = [
-		("Ony field to fill...", { 'fields': ['question'] } ),
+		( None, { 'fields': ['question'] } ),
 		('Date information', { 'fields': ['pub_date'], 'classes': ['collapse'] } ),
 	]
 	inlines = [ChoiceInLine]
+	list_display = ('question', 'pub_date', 'was_published_recently')
+	list_filter = ['pub_date']
+	search_fields = ['question']
 
 admin.site.register(Poll, PollAdmin)
