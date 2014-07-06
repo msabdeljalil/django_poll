@@ -3,6 +3,7 @@ from django.template import RequestContext, loader # WIth the new method for ind
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.views import generic
+from django.utils import timezone
 from polls.models import Choice, Poll
 
 # def index(request):
